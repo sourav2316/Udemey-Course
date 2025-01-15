@@ -8,6 +8,8 @@ function App() {
   }
 
   const descriptions = array[genRandomNumber(2)];
+  console.log("Descriptions", descriptions);
+  
 
   return <h1>{descriptions} Hello World Kida vayi mundeyaaaa</h1>;
 }
