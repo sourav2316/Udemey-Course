@@ -4,6 +4,8 @@ import imageImport from "./assets/react.svg";
 import CoreConcept from "./components/CoreConcept";
 import TabButton from "./components/TabButton";
 import { useState } from "react";
+import Section from "./components/Section";
+import Tabs from "./components/Tabs";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <>
-      <section>
+      <Section title="SVIT">
         <Header />
         <CoreConcept img={imageImport} title="React" desc="Udemy Course" />
         <CoreConcept
@@ -27,22 +29,27 @@ function App() {
           title="Next JS"
           desc="Udemy Course Part 3"
         />
-      </section>
-      <section id="example">
-        <menu>
-          <TabButton onSelect={() => setShow(!show)}>PROPS</TabButton>
-          {show ? (
+      </Section>
+      <Section title="TE ESPORTS" id="example">
+        <Tabs
+          buttonContainer="menu"
+          buttons={
             <>
-              <TabButton onSelect={() => handleShow("IT SECTOR 1")}>
-                JSX COMPONENT
-              </TabButton>
-              <TabButton onSelect={() => handleShow("IT SECTOR 2")}>
-                STATES
-              </TabButton>
+              <TabButton onClick={() => setShow(!show)}>PROPS</TabButton>
+              {show ? (
+                <>
+                  <TabButton onClick={() => handleShow("IT SECTOR 1")}  >
+                    JSX COMPONENT 
+                  </TabButton>
+                  <TabButton onClick={() => handleShow("IT SECTOR 2")}>
+                    STATES
+                  </TabButton>
+                </>
+              ) : null}
             </>
-          ) : null}
-        </menu>
-      </section>
+          }
+        ></Tabs>
+      </Section>
     </>
   );
 }

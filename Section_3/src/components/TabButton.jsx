@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const TabButton = ({ children, onSelect }) => {
+const TabButton = ({ children, onSelect, ...props }) => {
   return (
     <>
-      <button onClick={onSelect}>{children}</button>
+      <button {...props}>{children}</button>
     </>
   );
 };
